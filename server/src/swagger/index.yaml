@@ -26,3 +26,5 @@ paths:
                       type: integer
                     name:
                       type: string
+  /posts:
+    $ref: './post.yaml'

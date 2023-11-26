@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "build:swagger": "swagger-cli bundle ./src/swagger/index.yaml --outfile dist/swagger.yaml --type yaml",
     "start": "node -r module-alias/register dist/app.js",
-    "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts"
+    "dev": "swagger-cli bundle ./src/swagger/index.yaml --outfile src/swagger.yaml --type yaml && nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "module-alias": "^2.2.3",
+    "swagger-cli": "^4.0.4",
     "swagger-ui-express": "^5.0.0",
     "yaml": "^2.3.4"
   },
