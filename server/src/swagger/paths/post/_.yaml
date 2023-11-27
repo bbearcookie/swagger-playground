@@ -39,3 +39,68 @@ get:
               content: 스터디를 함께하실 분을 찾습니다
               imageName: musseuk_default.png
               commentCount: 0
+post:
+  summary: 머쓱이 생성
+  description: 머쓱이를 생성합니다.
+  parameters:
+    - name: Authorization
+      $ref: '#/components/parameters/Authorization'
+  requestBody:
+    description: 머쓱이 생성에 필요한 정보
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+            content:
+              type: string
+            imageName:
+              type: string
+        example:
+          title: 피드백 머쓱이
+          content: 저에게 피드백을 주세요
+          imageName: musseuk_default.png
+  responses:
+    '201':
+      description: 요청 성공
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              postId:
+                type: integer
+          example:
+            postId: 5
+    '400':
+      description: 잘못된 요청
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              validation:
+                type: object
+                properties:
+                  title:
+                    type: string
+                    required: false
+                  content:
+                    type: string
+                    required: false
+                  imageName:
+                    type: string
+                    required: false
+          example:
+            message: 잘못된 요청이에요.
+            validation:
+              title: 제목을 입력해주세요.
+              content: 내용을 입력해주세요.
+              imageName: 테마를 선택해주세요.
+    '401':
+      $ref: '#/components/responses/401'
