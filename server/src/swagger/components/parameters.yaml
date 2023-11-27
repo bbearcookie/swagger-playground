@@ -5,4 +5,13 @@ Authorization:
   required: true
   schema:
     type: string
-    default: Bearer {accessToken}
+    example: Bearer {accessToken}
+
+postId:
+  name: postId
+  in: path
+  description: 조회할 머쓱이의 postId
+  required: true
+  schema:
+    type: integer
+    format: int64

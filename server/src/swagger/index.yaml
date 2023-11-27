@@ -7,6 +7,11 @@ info:
     name: bbearcookie
 servers:
   - url: http://localhost:5010/
+components:
+  parameters:
+    $ref: './components/parameters.yaml'
+  responses:
+    $ref: './components/responses.yaml'
 paths:
   /pets:
     get:
@@ -28,10 +33,6 @@ paths:
   /posts:
     $ref: './paths/post/_.yaml'
   /posts/{postId}:
-    $ref: './paths/post/{postId}.yaml'
-
-components:
-  parameters:
-    $ref: './components/parameters.yaml'
-  responses:
-    $ref: './components/responses.yaml'
+    $ref: './paths/post/{postId}/_.yaml'
+  /posts/{postId}/comments:
+    $ref: './paths/post/{postId}/comments.yaml'

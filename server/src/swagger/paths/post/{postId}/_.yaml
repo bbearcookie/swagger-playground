@@ -1,18 +1,15 @@
 components:
-  $ref: '../../index.yaml#/components'
+  $ref: '../../../index.yaml#/components'
 get:
+  tags:
+    - 머쓱이
   summary: 머쓱이 상세 조회
   description: 머쓱이의 상세 정보를 조회합니다.
   parameters:
     - name: Authorization
       $ref: '#/components/parameters/Authorization'
     - name: postId
-      in: path
-      description: 조회할 머쓱이의 postId
-      required: true
-      schema:
-        type: integer
-        format: int64
+      $ref: '#/components/parameters/postId'
   responses:
     '200':
       description: 요청 성공
@@ -36,10 +33,6 @@ get:
                   properties:
                     commentId:
                       type: integer
-                    author:
-                      type: string
-                    content:
-                      type: string
                     positionX:
                       type: integer
                     positionY:
@@ -52,12 +45,14 @@ get:
             content: 저에게 피드백을 주세요
             imageName: musseuk_default.png
             comments:
-              commentId: 5
-              author: 나는야 익명~
-              content: 익명으로 이렇게 글을 남겼어요
-              positionX: 55
-              positionY: 413
-              imageName: bell.png
+              - commentId: 1
+                positionX: 55
+                positionY: 413
+                imageName: decoration_beer1.png
+              - commentId: 2
+                positionX: 23
+                positionY: 333
+                imageName: decoration_chicken1.png
     '401':
       $ref: '#/components/responses/401'
     '404':
