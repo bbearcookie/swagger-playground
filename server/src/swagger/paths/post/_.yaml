@@ -1,0 +1,41 @@
+components:
+  $ref: '../../index.yaml#/components'
+get:
+  summary: 머쓱이 목록 조회
+  description: 머쓱이 목록을 조회합니다.
+  responses:
+    '200':
+      description: 요청 성공
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                postId:
+                  type: integer
+                title:
+                  type: string
+                content:
+                  type: string
+                imageName:
+                  type: string
+                commentCount:
+                  type: integer
+          example:
+            - postId: 1
+              title: 피드백 머쓱이
+              content: 저에게 피드백을 주세요
+              imageName: musseuk_default.png
+              commentCount: 1
+            - postId: 2
+              title: 잡담 머쓱이
+              content: 우하하 잡담용 머쓱이에요
+              imageName: musseuk_default.png
+              commentCount: 5
+            - postId: 3
+              title: 스터디 머쓱이
+              content: 스터디를 함께하실 분을 찾습니다
+              imageName: musseuk_default.png
+              commentCount: 0
