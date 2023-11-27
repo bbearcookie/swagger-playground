@@ -26,6 +26,6 @@ paths:
                     name:
                       type: string
   /posts:
-    $ref: './post.yaml'
+    $ref: './paths/post.yaml'
   /posts/{postId}:
-    $ref: './post/{postId}.yaml'
+    $ref: './paths/post/{postId}.yaml'

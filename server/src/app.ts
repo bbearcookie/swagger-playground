@@ -15,6 +15,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(5010, () => {
-  console.log('Server running on http://localhost:5010');
+const PORT = 5010;
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });

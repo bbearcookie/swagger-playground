@@ -9,6 +9,8 @@ get:
       schema:
         type: integer
         format: int64
+    - name: Authorization
+      $ref: '../../components.yaml#/components/parameters/Authorization'
   responses:
     '200':
       description: 요청 성공

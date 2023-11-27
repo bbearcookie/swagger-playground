@@ -1,0 +1,10 @@
+components:
+  parameters:
+    Authorization:
+      name: Authorization
+      in: header
+      description: 액세스 토큰
+      required: true
+      schema:
+        type: string
+        default: Bearer {accessToken}
