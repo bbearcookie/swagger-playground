@@ -58,6 +58,8 @@ get:
               positionX: 55
               positionY: 413
               imageName: bell.png
+    '401':
+      $ref: '#/components/responses/401'
     '404':
       description: 해당 머쓱이가 없을 때
       content:

@@ -33,3 +33,5 @@ paths:
 components:
   parameters:
     $ref: './components/parameters.yaml'
+  responses:
+    $ref: './components/responses.yaml'
