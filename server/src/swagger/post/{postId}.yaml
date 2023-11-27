@@ -1,0 +1,67 @@
+get:
+  summary: 머쓱이 상세 조회
+  description: 머쓱이의 상세 정보를 조회합니다.
+  parameters:
+    - name: postId
+      in: path
+      description: 조회할 머쓱이의 postId
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: 요청 성공
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              postId:
+                type: integer
+              title:
+                type: string
+              content:
+                type: string
+              imageName:
+                type: string
+              comments:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    commentId:
+                      type: integer
+                    author:
+                      type: string
+                    content:
+                      type: string
+                    positionX:
+                      type: integer
+                    positionY:
+                      type: integer
+                    imageName:
+                      type: string
+          example:
+            postId: 1
+            title: 피드백 머쓱이
+            content: 저에게 피드백을 주세요
+            imageName: musseuk_default.png
+            comments:
+              commentId: 5
+              author: 나는야 익명~
+              content: 익명으로 이렇게 글을 남겼어요
+              positionX: 55
+              positionY: 413
+              imageName: bell.png
+    '404':
+      description: 해당 머쓱이가 없을 때
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          example:
+            message: 해당 머쓱이는 존재하지 않아요.

@@ -7,7 +7,6 @@ info:
     name: bbearcookie
 servers:
   - url: http://localhost:5010/
-
 paths:
   /pets:
     get:
@@ -28,3 +27,5 @@ paths:
                       type: string
   /posts:
     $ref: './post.yaml'
+  /posts/{postId}:
+    $ref: './post/{postId}.yaml'
