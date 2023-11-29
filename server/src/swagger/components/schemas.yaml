@@ -1,0 +1,15 @@
+Comment:
+  type: object
+  properties:
+    commentId:
+      type: integer
+    author:
+      type: string
+    content:
+      type: string
+    positionX:
+      type: integer
+    positionY:
+      type: integer
+    imageName:
+      type: string

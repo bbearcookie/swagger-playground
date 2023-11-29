@@ -1,4 +1,4 @@
-'401':
+Unauthorized:
   description: 액세스 토큰이 없거나 만료되었을 때
   content:
     application/json:
@@ -9,3 +9,39 @@
             type: string
       example:
         message: 로그인이 필요해요.
+
+ForbiddenGetComment:
+  description: 해당 머쓱이의 편지를 읽을 권한이 없을 때 (본인이 생성한 머쓱이가 아닌 경우)
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: string
+      example:
+        message: 편지를 읽을 권한이 없어요.
+
+NotFoundComment:
+  description: 해당 편지가 없을 때
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: string
+      example:
+        message: 편지를 찾을 수 없어요.
+
+NotFoundPost:
+  description: 해당 편지가 없을 때
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: string
+      example:
+        message: 편지를 찾을 수 없어요.

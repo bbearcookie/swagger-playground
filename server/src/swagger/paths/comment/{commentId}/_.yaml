@@ -1,0 +1,30 @@
+components:
+  $ref: '../../../index.yaml#/components'
+get:
+  tags:
+    - 편지
+  summary: 편지 상세 조회
+  description: 특정 편지의 상세 정보를 조회합니다.
+  parameters:
+    - name: Authorization
+      $ref: '#/components/parameters/Authorization'
+    - name: commentId
+      $ref: '#/components/parameters/commentId'
+  responses:
+    '200':
+      description: 요청 성공
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Comment'
+          example:
+            commentId: 1
+            author: 우주킹왕짱
+            content: 당신에게 마음을 전해요
+            positionX: 55
+            positionY: 413
+            imageName: decoration_beer1.png
+    '401':
+      $ref: '#/components/responses/Unauthorized'
+    '403':
+      $ref: '#/components/responses/ForbiddenGetComment'

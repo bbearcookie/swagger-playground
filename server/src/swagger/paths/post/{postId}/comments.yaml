@@ -18,20 +18,7 @@ get:
           schema:
             type: array
             items:
-              type: object
-              properties:
-                commentId:
-                  type: integer
-                author:
-                  type: string
-                content:
-                  type: string
-                positionX:
-                  type: integer
-                positionY:
-                  type: integer
-                imageName:
-                  type: string
+              $ref: '#/components/schemas/Comment'
           example:
             - commentId: 1
               author: 우주킹왕짱
@@ -46,26 +33,8 @@ get:
               positionY: 333
               imageName: decoration_chicken1.png
     '401':
-      $ref: '#/components/responses/401'
+      $ref: '#/components/responses/Unauthorized'
     '403':
-      description: 해당 머쓱이의 편지를 읽을 권한이 없을 때 (본인이 생성한 머쓱이가 아닌 경우)
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-          example:
-            message: 편지를 읽을 권한이 없어요.
+      $ref: '#/components/responses/ForbiddenGetComment'
     '404':
-      description: 해당 편지가 없을 때
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-          example:
-            message: 편지를 찾을 수 없어요.
+      $ref: '#/components/responses/NotFoundComment'

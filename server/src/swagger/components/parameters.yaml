@@ -15,3 +15,12 @@ postId:
   schema:
     type: integer
     format: int64
+
+commentId:
+  name: commentId
+  in: path
+  description: 조회할 편지의 commentId
+  required: true
+  schema:
+    type: integer
+    format: int64

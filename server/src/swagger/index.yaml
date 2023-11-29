@@ -12,6 +12,8 @@ components:
     $ref: './components/parameters.yaml'
   responses:
     $ref: './components/responses.yaml'
+  schemas:
+    $ref: './components/schemas.yaml'
 paths:
   /pets:
     get:
@@ -36,3 +38,5 @@ paths:
     $ref: './paths/post/{postId}/_.yaml'
   /posts/{postId}/comments:
     $ref: './paths/post/{postId}/comments.yaml'
+  /comments/{commentId}:
+    $ref: './paths/comment/{commentId}/_.yaml'

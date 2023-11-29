@@ -107,4 +107,4 @@ post:
               content: 내용을 입력해주세요.
               imageName: 테마를 선택해주세요.
     '401':
-      $ref: '#/components/responses/401'
+      $ref: '#/components/responses/Unauthorized'
