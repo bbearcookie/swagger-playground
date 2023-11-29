@@ -6,3 +6,76 @@ post:
     - 인증 / 인가
   summary: 회원가입
   description: 회원가입을 합니다.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              required: true
+            password:
+              type: string
+              required: true
+            name:
+              type: string
+              required: true
+          example:
+            username: bbearcookie
+            password: 12341234
+            name: 김곰돌
+  responses:
+    '201':
+      description: 요청 성공 (TODO -> 회원 정보까지 보내줄지 고민해보기)
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              userId:
+                type: integer
+              accessToken:
+                type: string
+            example:
+              userId: 5
+              accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm
+    '400':
+      description: 잘못된 요청
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              validation:
+                type: object
+                properties:
+                  username:
+                    type: string
+                    required: false
+                  password:
+                    type: string
+                    required: false
+                  name:
+                    type: string
+                    required: false
+          example:
+            message: 잘못된 요청이에요.
+            validation:
+              username: 아이디를 입력해주세요.
+              password: 비밀번호를 입력해주세요.
+              name: 실명을 입력해주세요.
+    '409':
+      description: 이미 존재하는 아이디인 경우
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+          example:
+            message: 이미 존재하는 아이디에요.
