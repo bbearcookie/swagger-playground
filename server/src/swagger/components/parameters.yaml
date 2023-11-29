@@ -10,7 +10,7 @@ Authorization:
 postId:
   name: postId
   in: path
-  description: 조회할 머쓱이의 postId
+  description: 머쓱이의 postId
   required: true
   schema:
     type: integer
@@ -19,7 +19,7 @@ postId:
 commentId:
   name: commentId
   in: path
-  description: 조회할 편지의 commentId
+  description: 편지의 commentId
   required: true
   schema:
     type: integer

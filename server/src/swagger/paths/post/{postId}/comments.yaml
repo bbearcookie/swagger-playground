@@ -1,5 +1,6 @@
 components:
   $ref: '../../../index.yaml#/components'
+
 get:
   tags:
     - 머쓱이
@@ -36,3 +37,51 @@ get:
       $ref: '#/components/responses/Unauthorized'
     '404':
       $ref: '#/components/responses/NotFoundComment'
+
+post:
+  tags:
+    - 머쓱이
+  summary: 특정 머쓱이에게 편지 작성
+  description: 특정 머쓱이에게 편지를 작성합니다.
+  parameters:
+    - name: postId
+      $ref: '#/components/parameters/postId'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            author:
+              type: string
+              required: true
+            content:
+              type: string
+              required: true
+            positionX:
+              type: integer
+              required: true
+            positionY:
+              type: integer
+              required: true
+            imageName:
+              type: string
+              required: true
+        example:
+          author: 우주킹왕짱
+          content: 당신에게 마음을 전해요
+          positionX: 55
+          positionY: 413
+          imageName: decoration_beer1.png
+  responses:
+    '201':
+      description: 요청 성공
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Comment'
+          example:
+            commentId: 7
+    '404':
+      $ref: '#/components/responses/NotFoundPost'

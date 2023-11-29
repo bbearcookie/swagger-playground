@@ -75,7 +75,6 @@ post:
     - name: Authorization
       $ref: '#/components/parameters/Authorization'
   requestBody:
-    description: 머쓱이 생성에 필요한 정보
     required: true
     content:
       application/json:
@@ -84,10 +83,13 @@ post:
           properties:
             title:
               type: string
+              required: true
             content:
               type: string
+              required: true
             imageName:
               type: string
+              required: true
         example:
           title: 피드백 머쓱이
           content: 저에게 피드백을 주세요
