@@ -4,7 +4,23 @@ get:
   tags:
     - 머쓱이
   summary: 머쓱이 목록 조회
-  description: 머쓱이 목록을 조회합니다. (TODO -> 페이징 처리를 위한 파라미터, 최신순 인기순 등 조회 조건 추가가 필요함)
+  description: 머쓱이 목록을 조회합니다.
+  parameters:
+    - name: page
+      in: query
+      description: 페이지 번호
+      schema:
+        type: integer
+        default: 1
+    - name: orderby
+      in: query
+      description: 정렬 기준 (인기순, 최신순)
+      schema:
+        type: enum
+        enum:
+          - popular
+          - latest
+        default: popular
   responses:
     '200':
       description: 요청 성공
