@@ -22,9 +22,9 @@ get:
           - popular
           - latest
         default: popular
-    - name: userId
+    - name: authorId
       in: query
-      description: 특정 유저가 작성한 머쓱이만 조회할 때 사용
+      description: 특정 유저가 작성한 머쓱이만 조회할 때 사용 (userId)
       schema:
         type: integer
       default: null
