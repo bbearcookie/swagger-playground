@@ -1,0 +1,8 @@
+components:
+  $ref: '../../index.yaml#/components'
+
+post:
+  tags:
+    - 인증 / 인가
+  summary: 로그인
+  description: 로그인을 합니다.

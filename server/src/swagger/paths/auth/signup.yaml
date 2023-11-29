@@ -1,0 +1,8 @@
+components:
+  $ref: '../../index.yaml#/components'
+
+post:
+  tags:
+    - 인증 / 인가
+  summary: 회원가입
+  description: 회원가입을 합니다.

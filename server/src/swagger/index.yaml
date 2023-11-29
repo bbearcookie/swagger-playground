@@ -7,6 +7,7 @@ info:
     name: bbearcookie
 servers:
   - url: http://localhost:5010/
+
 components:
   parameters:
     $ref: './components/parameters.yaml'
@@ -14,29 +15,27 @@ components:
     $ref: './components/responses.yaml'
   schemas:
     $ref: './components/schemas.yaml'
+
 paths:
-  /pets:
-    get:
-      description: Returns all pets from the system that the user has access to
-      responses:
-        '200':
-          description: A list of users.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    name:
-                      type: string
   /posts:
-    $ref: './paths/post/_.yaml'
+    $ref: './paths/posts/_.yaml'
   /posts/{postId}:
-    $ref: './paths/post/{postId}/_.yaml'
+    $ref: './paths/posts/{postId}/_.yaml'
   /posts/{postId}/comments:
-    $ref: './paths/post/{postId}/comments.yaml'
+    $ref: './paths/posts/{postId}/comments.yaml'
   /comments/{commentId}:
-    $ref: './paths/comment/{commentId}/_.yaml'
+    $ref: './paths/comments/{commentId}/_.yaml'
+
+  /auth/signup:
+    $ref: './paths/auth/signup.yaml'
+  /auth/signin:
+    $ref: './paths/auth/signin.yaml'
+  /auth/signout:
+    $ref: './paths/auth/signout.yaml'
+  /auth/check:
+    $ref: './paths/auth/check.yaml'
+
+  /users/{userId}:
+    $ref: './paths/users/{userId}/_.yaml'
+  /users/{userId}/photos:
+    $ref: './paths/users/{userId}/photo.yaml'
