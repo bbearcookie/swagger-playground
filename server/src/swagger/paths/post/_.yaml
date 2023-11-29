@@ -13,34 +13,43 @@ get:
           schema:
             type: array
             items:
-              type: object
-              properties:
-                postId:
-                  type: integer
-                title:
-                  type: string
-                content:
-                  type: string
-                imageName:
-                  type: string
-                commentCount:
-                  type: integer
+              $ref: '#/components/schemas/Post'
           example:
             - postId: 1
               title: 피드백 머쓱이
               content: 저에게 피드백을 주세요
               imageName: musseuk_default.png
-              commentCount: 1
+              comments:
+                - commentId: 1
+                  positionX: 55
+                  positionY: 413
+                  imageName: decoration_beer1.png
+                - commentId: 2
+                  positionX: 23
+                  positionY: 333
+                  imageName: decoration_chicken1.png
             - postId: 2
               title: 잡담 머쓱이
               content: 우하하 잡담용 머쓱이에요
               imageName: musseuk_default.png
-              commentCount: 5
+              comments: []
             - postId: 3
               title: 스터디 머쓱이
               content: 스터디를 함께하실 분을 찾습니다
               imageName: musseuk_default.png
-              commentCount: 0
+              comments:
+                - commentId: 3
+                  positionX: 55
+                  positionY: 413
+                  imageName: decoration_beer1.png
+                - commentId: 4
+                  positionX: 23
+                  positionY: 333
+                  imageName: decoration_chicken1.png
+                - commentId: 5
+                  positionX: 21
+                  positionY: 111
+                  imageName: decoration_chicken1.png
 post:
   tags:
     - 머쓱이

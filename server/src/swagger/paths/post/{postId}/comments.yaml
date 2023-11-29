@@ -34,7 +34,5 @@ get:
               imageName: decoration_chicken1.png
     '401':
       $ref: '#/components/responses/Unauthorized'
-    '403':
-      $ref: '#/components/responses/ForbiddenGetComment'
     '404':
       $ref: '#/components/responses/NotFoundComment'

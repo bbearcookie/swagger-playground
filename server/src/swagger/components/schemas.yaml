@@ -1,3 +1,28 @@
+Post:
+  type: object
+  properties:
+    postId:
+      type: integer
+    title:
+      type: string
+    content:
+      type: string
+    imageName:
+      type: string
+    comments:
+      type: array
+      items:
+        type: object
+        properties:
+          commentId:
+            type: integer
+          positionX:
+            type: integer
+          positionY:
+            type: integer
+          imageName:
+            type: string
+
 Comment:
   type: object
   properties:
