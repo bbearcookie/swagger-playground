@@ -6,3 +6,23 @@ get:
     - 인증 / 인가
   summary: 로그인 확인
   description: 로그인이 되어있는지 확인합니다.
+  parameters:
+    - name: Authorization
+      $ref: '#/components/parameters/Authorization'
+  responses:
+    '200':
+      description: 요청 성공
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              userId:
+                type: integer
+              accessToken:
+                type: string
+            example:
+              userId: 5
+              accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm
+    '401':
+      $ref: '#/components/responses/Unauthorized'
