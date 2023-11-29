@@ -34,6 +34,8 @@ paths:
     $ref: './paths/auth/signout.yaml'
   /auth/check:
     $ref: './paths/auth/check.yaml'
+  /auth/password:
+    $ref: './paths/auth/password.yaml'
 
   /users/{userId}:
     $ref: './paths/users/{userId}/_.yaml'
