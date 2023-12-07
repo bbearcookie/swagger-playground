@@ -101,3 +101,21 @@ put:
       $ref: '#/components/responses/Unauthorized'
     '404':
       $ref: '#/components/responses/NotFoundPost'
+
+delete:
+  tags:
+    - 머쓱이
+  summary: 머쓱이 삭제
+  description: 머쓱이를 삭제합니다.
+  parameters:
+    - name: Authorization
+      $ref: '#/components/parameters/Authorization'
+    - name: postId
+      $ref: '#/components/parameters/postId'
+  responses:
+    '200':
+      description: 요청 성공
+    '401':
+      $ref: '#/components/responses/Unauthorized'
+    '404':
+      $ref: '#/components/responses/NotFoundPost'
