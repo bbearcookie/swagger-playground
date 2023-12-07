@@ -1,5 +1,6 @@
 components:
   $ref: '../../../index.yaml#/components'
+
 get:
   tags:
     - 머쓱이
@@ -31,6 +32,71 @@ get:
                 positionX: 23
                 positionY: 333
                 imageName: decoration_chicken1.png
+    '401':
+      $ref: '#/components/responses/Unauthorized'
+    '404':
+      $ref: '#/components/responses/NotFoundPost'
+
+put:
+  tags:
+    - 머쓱이
+  summary: 머쓱이 수정 (없어도 되나?)
+  description: 머쓱이를 수정합니다.
+  parameters:
+    - name: Authorization
+      $ref: '#/components/parameters/Authorization'
+    - name: postId
+      $ref: '#/components/parameters/postId'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+              required: true
+            content:
+              type: string
+              required: true
+            imageName:
+              type: string
+              required: true
+        example:
+          title: 피드백 머쓱이
+          content: 저에게 피드백을 주세요
+          imageName: musseuk_default.png
+  responses:
+    '200':
+      description: 요청 성공
+    '400':
+      description: 잘못된 요청
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              validation:
+                type: object
+                properties:
+                  title:
+                    type: string
+                    required: false
+                  content:
+                    type: string
+                    required: false
+                  imageName:
+                    type: string
+                    required: false
+          example:
+            message: 잘못된 요청이에요.
+            validation:
+              title: 제목을 입력해주세요.
+              content: 내용을 입력해주세요.
+              imageName: 테마를 선택해주세요.
     '401':
       $ref: '#/components/responses/Unauthorized'
     '404':
