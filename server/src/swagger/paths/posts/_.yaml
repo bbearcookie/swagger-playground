@@ -28,6 +28,12 @@ get:
       schema:
         type: integer
       default: null
+    - name: keyword
+      in: query
+      description: 특정 키워드가 제목이나 내용에 포함된 머쓱이만 조회할 때 사용
+      schema:
+        type: string
+      default: null
   responses:
     '200':
       description: 요청 성공

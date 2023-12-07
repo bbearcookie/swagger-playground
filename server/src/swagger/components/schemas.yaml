@@ -1,3 +1,21 @@
+User:
+  type: object
+  properties:
+    userId:
+      type: integer
+    username:
+      type: string
+    name:
+      type: string
+    introduce:
+      type: string
+    slackId:
+      type: string
+    slackWorkspace:
+      type: string
+    imageName:
+      type: string
+
 Post:
   type: object
   properties:

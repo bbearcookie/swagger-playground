@@ -37,6 +37,8 @@ paths:
   /auth/password:
     $ref: './paths/auth/password.yaml'
 
+  /users:
+    $ref: './paths/users/_.yaml'
   /users/{userId}:
     $ref: './paths/users/{userId}/_.yaml'
   /users/{userId}/photos:
