@@ -15,6 +15,10 @@ User:
       type: string
     imageName:
       type: string
+    postCount:
+      type: integer
+    commentCount:
+      type: integer
 
 Post:
   type: object
