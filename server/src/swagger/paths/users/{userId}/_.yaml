@@ -37,3 +37,69 @@ put:
     - 사용자
   summary: 사용자의 정보 수정
   description: 사용자의 정보를 수정합니다.
+  parameters:
+    - name: userId
+      in: path
+      description: 수정할 사용자의 ID
+      schema:
+        type: integer
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              required: true
+            introduce:
+              type: string
+              required: true
+          example:
+            name: 신짱구
+            introduce: 저는 짱구에요
+  responses:
+    '200':
+      description: 요청 성공
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+          example:
+            userId: 1
+            username: jjanggu123
+            name: 신짱구
+            introduce: 저는 짱구에요
+            slackId: U01H9QZJX1T
+            slackWorkspace: D9D8A7A7S
+            imageName: 짱구_이미지_링크.png
+            postCount: 3
+            commentCount: 5
+    '400':
+      description: 잘못된 요청
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              validation:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    required: false
+                  introduce:
+                    type: string
+                    required: false
+          example:
+            message: 잘못된 요청이에요.
+            validation:
+              name: 이름은 최대 ~자까지 입력할 수 있어요.
+              introduce: 한줄 소개는 최대 ~자까지 입력할 수 있어요.
+    '401':
+      $ref: '#/components/responses/Unauthorized'
+    '404':
+      $ref: '#/components/responses/NotFoundUser'

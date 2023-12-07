@@ -11,7 +11,7 @@ Unauthorized:
         message: 로그인이 필요해요.
 
 NotFoundUser:
-  description: 해당 사용자가 없는 경우
+  description: 해당 사용자가 없는 경우<br/>해당 사용자에 접근할 권한이 없는 경우
   content:
     application/json:
       schema:
