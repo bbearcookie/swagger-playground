@@ -1,0 +1,8 @@
+components:
+  $ref: '../../../index.yaml#/components'
+
+put:
+  tags:
+    - 사용자
+  summary: 사용자의 슬랙 연동 계정 수정
+  description: 사용자의 슬랙 연동 계정을 수정합니다.

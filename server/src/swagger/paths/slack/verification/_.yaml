@@ -1,0 +1,32 @@
+components:
+  $ref: '../../../index.yaml#/components'
+
+post:
+  tags:
+    - 슬랙 연동
+  summary: 슬랙 DM으로 인증 링크 전송
+  description: 슬랙 DM으로 인증 링크를 전송합니다.
+  parameters:
+    - name: Authorization
+      $ref: '#/components/parameters/Authorization'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            slackId:
+              type: string
+              required: true
+            slackWorkspace:
+              type: string
+              required: true
+          example:
+            slackId: U01H9F7U6J7
+            slackWorkspace: T01H9F7U6J7
+  responses:
+    '200':
+      description: 요청 성공
+    '401':
+      $ref: '#/components/responses/Unauthorized'
