@@ -43,12 +43,14 @@ put:
       description: 수정할 사용자의 ID
       schema:
         type: integer
+        required: true
   requestBody:
     required: true
     content:
       application/json:
         schema:
           type: object
+          required: true
           properties:
             name:
               type: string
@@ -82,9 +84,11 @@ put:
         application/json:
           schema:
             type: object
+            required: true
             properties:
               message:
                 type: string
+                required: true
               validation:
                 type: object
                 properties:

@@ -16,11 +16,14 @@ get:
         application/json:
           schema:
             type: object
+            required: true
             properties:
               userId:
                 type: integer
+                required: true
               accessToken:
                 type: string
+                required: true
             example:
               userId: 5
               accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm

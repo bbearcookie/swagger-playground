@@ -53,6 +53,7 @@ put:
       application/json:
         schema:
           type: object
+          required: true
           properties:
             title:
               type: string
@@ -76,21 +77,20 @@ put:
         application/json:
           schema:
             type: object
+            required: true
             properties:
               message:
                 type: string
+                required: true
               validation:
                 type: object
                 properties:
                   title:
                     type: string
-                    required: false
                   content:
                     type: string
-                    required: false
                   imageName:
                     type: string
-                    required: false
           example:
             message: 잘못된 요청이에요.
             validation:

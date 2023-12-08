@@ -15,6 +15,7 @@ put:
       application/json:
         schema:
           type: object
+          required: true
           properties:
             code:
               type: string
@@ -30,9 +31,11 @@ put:
         application/json:
           schema:
             type: object
+            required: true
             properties:
               message:
                 type: string
+                required: true
               validation:
                 type: object
                 properties:

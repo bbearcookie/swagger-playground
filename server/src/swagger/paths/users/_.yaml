@@ -26,6 +26,7 @@ get:
         application/json:
           schema:
             type: array
+            required: true
             items:
               $ref: '#/components/schemas/User'
           example:

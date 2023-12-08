@@ -16,9 +16,11 @@ post:
         application/json:
           schema:
             type: object
+            required: true
             properties:
               message:
                 type: string
+                required: true
           example:
             message: 로그아웃 되었습니다.
     '401':

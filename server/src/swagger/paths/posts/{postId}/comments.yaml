@@ -52,6 +52,7 @@ post:
       application/json:
         schema:
           type: object
+          required: true
           properties:
             author:
               type: string

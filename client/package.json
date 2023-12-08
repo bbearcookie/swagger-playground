@@ -1,5 +1,10 @@
 {
+  "scripts": {
+    "generate": "openapi-generator-cli generate -i ../server/src/swagger.yaml -g typescript-axios -o ./generated --skip-validate-spec",
+    "orval": "orval --input ../server/src/swagger.yaml --output ./src/generated.ts"
+  },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.7.0"
+    "@openapitools/openapi-generator-cli": "^2.7.0",
+    "orval": "^6.22.1"
   }
 }
