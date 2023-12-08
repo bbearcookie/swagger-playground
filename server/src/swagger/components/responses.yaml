@@ -7,6 +7,7 @@ Unauthorized:
         properties:
           message:
             type: string
+            required: true
       example:
         message: 로그인이 필요해요.
 
@@ -19,6 +20,7 @@ NotFoundUser:
         properties:
           message:
             type: string
+            required: true
       example:
         message: 사용자를 찾을 수 없어요.
 
@@ -31,6 +33,7 @@ NotFoundComment:
         properties:
           message:
             type: string
+            required: true
       example:
         message: 편지를 찾을 수 없어요.
 
@@ -43,5 +46,6 @@ NotFoundPost:
         properties:
           message:
             type: string
+            required: true
       example:
         message: 머쓱이를 찾을 수 없어요.
