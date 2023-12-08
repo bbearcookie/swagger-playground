@@ -1,8 +1,8 @@
 Authorization:
   name: Authorization
   in: header
-  description: 액세스 토큰
   required: true
+  description: 액세스 토큰
   schema:
     type: string
     example: Bearer {accessToken}
@@ -10,8 +10,8 @@ Authorization:
 postId:
   name: postId
   in: path
-  description: 머쓱이의 postId
   required: true
+  description: 머쓱이의 postId
   schema:
     type: integer
     format: int64
@@ -19,8 +19,8 @@ postId:
 commentId:
   name: commentId
   in: path
-  description: 편지의 commentId
   required: true
+  description: 편지의 commentId
   schema:
     type: integer
     format: int64

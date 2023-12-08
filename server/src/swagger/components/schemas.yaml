@@ -1,90 +1,90 @@
 User:
   type: object
-  required: true
   properties:
     userId:
       type: integer
-      required: true
     username:
       type: string
-      required: true
     name:
       type: string
-      required: true
     introduce:
       type: string
-      required: true
     slackId:
       type: string
-      required: true
     slackWorkspace:
       type: string
-      required: true
     imageName:
       type: string
-      required: true
     postCount:
       type: integer
-      required: true
     commentCount:
       type: integer
-      required: true
+  required:
+    - userId
+    - username
+    - name
+    - introduce
+    - slackId
+    - slackWorkspace
+    - imageName
+    - postCount
+    - commentCount
 
 Post:
   type: object
-  required: true
   properties:
     postId:
       type: integer
-      required: true
     title:
       type: string
-      required: true
     content:
       type: string
-      required: true
     imageName:
       type: string
-      required: true
     comments:
       type: array
-      required: true
       items:
         type: object
-        required: true
         properties:
           commentId:
             type: integer
-            required: true
           positionX:
             type: integer
-            required: true
           positionY:
             type: integer
-            required: true
           imageName:
             type: string
-            required: true
+        required:
+          - commentId
+          - positionX
+          - positionY
+          - imageName
+  required:
+    - postId
+    - title
+    - content
+    - imageName
+    - comments
 
 Comment:
   type: object
-  required: true
   properties:
     commentId:
       type: integer
-      required: true
     author:
       type: string
-      required: true
     content:
       type: string
-      required: true
     positionX:
       type: integer
-      required: true
     positionY:
       type: integer
-      required: true
     imageName:
       type: string
-      required: true
+  required:
+    - commentId
+    - author
+    - content
+    - positionX
+    - positionY
+    - imageName
