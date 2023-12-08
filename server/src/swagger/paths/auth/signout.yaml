@@ -1,6 +1,3 @@
-components:
-  $ref: '../../index.yaml#/components'
-
 post:
   tags:
     - 인증 / 인가
@@ -8,7 +5,7 @@ post:
   description: 로그아웃 합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../index.yaml#/components/parameters/Authorization'
   responses:
     '200':
       description: 요청 성공
@@ -16,12 +13,12 @@ post:
         application/json:
           schema:
             type: object
-            required: true
             properties:
               message:
                 type: string
-                required: true
+            required:
+              - message
           example:
             message: 로그아웃 되었습니다.
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../index.yaml#/components/responses/Unauthorized'

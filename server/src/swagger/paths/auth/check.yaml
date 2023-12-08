@@ -1,6 +1,3 @@
-components:
-  $ref: '../../index.yaml#/components'
-
 get:
   tags:
     - 인증 / 인가
@@ -8,7 +5,7 @@ get:
   description: 로그인이 되어있는지 확인합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../index.yaml#/components/parameters/Authorization'
   responses:
     '200':
       description: 요청 성공
@@ -16,16 +13,16 @@ get:
         application/json:
           schema:
             type: object
-            required: true
             properties:
               userId:
                 type: integer
-                required: true
               accessToken:
                 type: string
-                required: true
+            required:
+              - userId
+              - accessToken
             example:
               userId: 5
               accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../index.yaml#/components/responses/Unauthorized'

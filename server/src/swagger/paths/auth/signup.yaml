@@ -1,6 +1,3 @@
-# components:
-#   $ref: '../../index.yaml#/components'
-
 post:
   tags:
     - 인증 / 인가

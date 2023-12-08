@@ -1,25 +1,21 @@
-components:
-  $ref: '../../index.yaml#/components'
-
 post:
   tags:
     - 인증 / 인가
   summary: 로그인
   description: 로그인을 합니다.
   requestBody:
-    required: true
     content:
       application/json:
         schema:
           type: object
-          required: true
           properties:
             username:
               type: string
-              required: true
             password:
               type: string
-              required: true
+          required:
+            - username
+            - password
           example:
             username: bbearcookie
             password: 12341234
@@ -30,14 +26,14 @@ post:
         application/json:
           schema:
             type: object
-            required: true
             properties:
               userId:
                 type: integer
-                required: true
               accessToken:
                 type: string
-                required: true
+            required:
+              - userId
+              - accessToken
             example:
               userId: 5
               accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm
@@ -47,20 +43,18 @@ post:
         application/json:
           schema:
             type: object
-            required: true
             properties:
               message:
                 type: string
-                required: true
               validation:
                 type: object
                 properties:
                   username:
                     type: string
-                    required: false
                   password:
                     type: string
-                    required: false
+            required:
+              - message
           example:
             message: 잘못된 요청이에요.
             validation:
