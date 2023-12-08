@@ -1,6 +1,3 @@
-components:
-  $ref: '../../../index.yaml#/components'
-
 put:
   tags:
     - 사용자
@@ -8,18 +5,19 @@ put:
   description: 사용자의 슬랙 연동 계정을 수정합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../../index.yaml#/components/parameters/Authorization'
+    - name: userId
+      $ref: '../../../index.yaml#/components/parameters/userId'
   requestBody:
-    required: true
     content:
       application/json:
         schema:
           type: object
-          required: true
           properties:
             code:
               type: string
-              required: true
+          required:
+            - code
         example:
           code: 0a450c7161050fb7eed51560c7d16a155aa2a85da09997d192d61ef21150e155
   responses:
@@ -31,22 +29,21 @@ put:
         application/json:
           schema:
             type: object
-            required: true
             properties:
               message:
                 type: string
-                required: true
               validation:
                 type: object
                 properties:
                   code:
                     type: string
-                    required: false
+            required:
+              - message
             example:
               message: 잘못된 요청이에요.
               validation:
                 code: 인증 코드가 만료되었어요.
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../../index.yaml#/components/responses/Unauthorized'
     '404':
-      $ref: '#/components/responses/NotFoundUser'
+      $ref: '../../../index.yaml#/components/responses/NotFoundUser'
