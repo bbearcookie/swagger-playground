@@ -1,6 +1,3 @@
-components:
-  $ref: '../../../index.yaml#/components'
-
 get:
   tags:
     - 머쓱이
@@ -8,9 +5,9 @@ get:
   description: 특정 머쓱이의 편지 목록 조회을 조회합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../../index.yaml#/components/parameters/Authorization'
     - name: postId
-      $ref: '#/components/parameters/postId'
+      $ref: '../../../index.yaml#/components/parameters/postId'
   responses:
     '200':
       description: 요청 성공
@@ -19,7 +16,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Comment'
+              $ref: '../../../index.yaml#/components/schemas/Comment'
           example:
             - commentId: 1
               author: 우주킹왕짱
@@ -34,9 +31,9 @@ get:
               positionY: 333
               imageName: decoration_chicken1.png
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../../index.yaml#/components/responses/Unauthorized'
     '404':
-      $ref: '#/components/responses/NotFoundComment'
+      $ref: '../../../index.yaml#/components/responses/NotFoundComment'
 
 post:
   tags:
@@ -45,30 +42,30 @@ post:
   description: 특정 머쓱이에게 편지를 작성합니다.
   parameters:
     - name: postId
-      $ref: '#/components/parameters/postId'
+      $ref: '../../../index.yaml#/components/parameters/postId'
   requestBody:
     required: true
     content:
       application/json:
         schema:
           type: object
-          required: true
           properties:
             author:
               type: string
-              required: true
             content:
               type: string
-              required: true
             positionX:
               type: integer
-              required: true
             positionY:
               type: integer
-              required: true
             imageName:
               type: string
-              required: true
+          required:
+            - author
+            - content
+            - positionX
+            - positionY
+            - imageName
         example:
           author: 우주킹왕짱
           content: 당신에게 마음을 전해요
@@ -81,8 +78,8 @@ post:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Comment'
+            $ref: '../../../index.yaml#/components/schemas/Comment'
           example:
             commentId: 7
     '404':
-      $ref: '#/components/responses/NotFoundPost'
+      $ref: '../../../index.yaml#/components/responses/NotFoundPost'

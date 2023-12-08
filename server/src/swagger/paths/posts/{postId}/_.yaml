@@ -1,6 +1,3 @@
-components:
-  $ref: '../../../index.yaml#/components'
-
 get:
   tags:
     - 머쓱이
@@ -8,16 +5,16 @@ get:
   description: 머쓱이의 상세 정보를 조회합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../../index.yaml#/components/parameters/Authorization'
     - name: postId
-      $ref: '#/components/parameters/postId'
+      $ref: '../../../index.yaml#/components/parameters/postId'
   responses:
     '200':
       description: 요청 성공
       content:
         application/json:
           schema:
-            - $ref: '#/components/schemas/Post'
+            $ref: '../../../index.yaml#/components/schemas/Post'
           example:
             postId: 1
             title: 피드백 머쓱이
@@ -33,9 +30,9 @@ get:
                 positionY: 333
                 imageName: decoration_chicken1.png
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../../index.yaml#/components/responses/Unauthorized'
     '404':
-      $ref: '#/components/responses/NotFoundPost'
+      $ref: '../../../index.yaml#/components/responses/NotFoundPost'
 
 put:
   tags:
@@ -44,26 +41,25 @@ put:
   description: 머쓱이를 수정합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../../index.yaml#/components/parameters/Authorization'
     - name: postId
-      $ref: '#/components/parameters/postId'
+      $ref: '../../../index.yaml#/components/parameters/postId'
   requestBody:
-    required: true
     content:
       application/json:
         schema:
           type: object
-          required: true
           properties:
             title:
               type: string
-              required: true
             content:
               type: string
-              required: true
             imageName:
               type: string
-              required: true
+          required:
+            - title
+            - content
+            - imageName
         example:
           title: 피드백 머쓱이
           content: 저에게 피드백을 주세요
@@ -77,11 +73,9 @@ put:
         application/json:
           schema:
             type: object
-            required: true
             properties:
               message:
                 type: string
-                required: true
               validation:
                 type: object
                 properties:
@@ -91,6 +85,8 @@ put:
                     type: string
                   imageName:
                     type: string
+            required:
+              - message
           example:
             message: 잘못된 요청이에요.
             validation:
@@ -98,9 +94,9 @@ put:
               content: 내용을 입력해주세요.
               imageName: 테마를 선택해주세요.
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../../index.yaml#/components/responses/Unauthorized'
     '404':
-      $ref: '#/components/responses/NotFoundPost'
+      $ref: '../../../index.yaml#/components/responses/NotFoundPost'
 
 delete:
   tags:
@@ -109,13 +105,13 @@ delete:
   description: 머쓱이를 삭제합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../../index.yaml#/components/parameters/Authorization'
     - name: postId
-      $ref: '#/components/parameters/postId'
+      $ref: '../../../index.yaml#/components/parameters/postId'
   responses:
     '200':
       description: 요청 성공
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../../index.yaml#/components/responses/Unauthorized'
     '404':
-      $ref: '#/components/responses/NotFoundPost'
+      $ref: '../../../index.yaml#/components/responses/NotFoundPost'

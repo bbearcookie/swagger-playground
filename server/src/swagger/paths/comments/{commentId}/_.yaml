@@ -1,5 +1,3 @@
-components:
-  $ref: '../../../index.yaml#/components'
 get:
   tags:
     - 편지
@@ -7,16 +5,16 @@ get:
   description: 특정 편지의 상세 정보를 조회합니다.
   parameters:
     - name: Authorization
-      $ref: '#/components/parameters/Authorization'
+      $ref: '../../../index.yaml#/components/parameters/Authorization'
     - name: commentId
-      $ref: '#/components/parameters/commentId'
+      $ref: '../../../index.yaml#/components/parameters/commentId'
   responses:
     '200':
       description: 요청 성공
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Comment'
+            $ref: '../../../index.yaml#/components/schemas/Comment'
           example:
             commentId: 1
             author: 우주킹왕짱
@@ -25,6 +23,6 @@ get:
             positionY: 413
             imageName: decoration_beer1.png
     '401':
-      $ref: '#/components/responses/Unauthorized'
+      $ref: '../../../index.yaml#/components/responses/Unauthorized'
     '404':
-      $ref: '#/components/responses/NotFoundComment'
+      $ref: '../../../index.yaml#/components/responses/NotFoundComment'
